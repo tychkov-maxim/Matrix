@@ -1,5 +1,7 @@
 package com.epam.tm;
 
+import java.util.Random;
+
 class Matrix {
     private int row,col;
     private int data[][];
@@ -12,6 +14,12 @@ class Matrix {
         for (int i = 0;i < row;i++)
             for (int j = 0;j < col;j++)
                 data[i][j] = 0;
+    }
+
+    void setRandom(){
+        for (int i = 0;i < row;i++)
+            for (int j = 0;j < col;j++)
+                data[i][j] = new Random().nextInt(1000);
     }
 
     void show(){

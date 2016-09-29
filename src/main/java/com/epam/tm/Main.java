@@ -5,7 +5,7 @@ public class Main {
 
 
         Matrix m = new Matrix(5,5);
-
+        m.setRandom();
         m.show();
 
     }
