@@ -34,14 +34,26 @@ class Matrix {
                     this.data[i][j] = data[i][j];
     }
 
-    void resetMatrix(){
+    private void resetMatrix(){
         for (int i = 0;i < row;i++)
             for (int j = 0;j < col;j++)
                 data[i][j] = 0;
     }
 
+    int getRow(){
+        return row;
+    }
+
+    int getCol(){
+        return col;
+    }
+
+    int getValue(int i,int j){
+        return data[i][j];
+    }
     //Вывод матрицы
     void show(){
+        System.out.println("-------------------------");
         for (int i = 0;i < row;i++) {
             for (int j = 0; j < col; j++) {
                 System.out.print(data[i][j] + " ");
@@ -49,5 +61,6 @@ class Matrix {
             System.out.println();
         }
     }
+
 
 }
