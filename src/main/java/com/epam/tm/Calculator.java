@@ -3,6 +3,9 @@ package com.epam.tm;
 public class Calculator {
     static public Matrix multiply(Matrix m1, Matrix m2){
 
+        if ((m1 == null) || (m2 == null))
+            return null;
+
         if (m1.getCol() != m2.getRow())
             return null;
 

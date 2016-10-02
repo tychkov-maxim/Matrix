@@ -14,12 +14,17 @@ class Matrix {
     }
 
     Matrix(int[][] data){
-        if ((data.length > 0)  && (data[0].length > 0)){
-            this.row = data.length;
-            this.col = data[0].length;
+
+        if (data != null) {
+            if ((data.length > 0) && (data[0].length > 0)) {
+                this.row = data.length;
+                this.col = data[0].length;
+            }
+
+            this.data = new int[row][col];
+            setMatrix(data);
         }
-        this.data = new int[row][col];
-        setMatrix(data);
+
     }
 
     void setRandom(){
@@ -29,9 +34,10 @@ class Matrix {
     }
 
     private void setMatrix(int[][] data){
-            for (int i = 0; i < row; i++)
-                for (int j = 0; j < col; j++)
-                    this.data[i][j] = data[i][j];
+        this.data = data.clone();
+//            for (int i = 0; i < row; i++)
+//                for (int j = 0; j < col; j++)
+//                    this.data[i][j] = data[i][j];
     }
 
     private void resetMatrix(){
