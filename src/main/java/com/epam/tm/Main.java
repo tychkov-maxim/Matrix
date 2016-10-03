@@ -14,12 +14,16 @@ public class Main {
                 {16,17,18,19,20}
         };
 
-        Matrix m1 = new Matrix(a);
-        Matrix m2 = new Matrix(b);
-        m1.show();
-        m2.show();
+        Matrix m1 = new Matrix(2,4);
+        Matrix m2 = new Matrix(4,4);
 
-        Calculator.multiply(m1,m2).show();
+        m1.fillRandomInRange(1000);
+        m2.fillRandomInRange(1000);
+
+
+
+        Matrix m3 = Calculator.multiply(m1,m2);
+
 
 
     }

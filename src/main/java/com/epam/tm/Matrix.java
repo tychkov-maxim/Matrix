@@ -2,71 +2,42 @@ package com.epam.tm;
 
 import java.util.Random;
 
-class Matrix {
-    private int row,col;
-    private int data[][];
+public class Matrix {
+    private int values[][];
 
     Matrix(int row,int col){
-        this.row = row;
-        this.col = col;
-        this.data = new int[row][col];
-        resetMatrix();
+        this.values = new int[row][col];
     }
 
     Matrix(int[][] data){
+        init(data);
+    }
+
+    void fillRandomInRange(int range){
+        for (int i = 0;i < getRow();i++)
+            for (int j = 0;j < getCol();j++)
+                values[i][j] = new Random().nextInt(range);
+    }
+
+    private void init(int[][] data) {
 
         if (data != null) {
-            if ((data.length > 0) && (data[0].length > 0)) {
-                this.row = data.length;
-                this.col = data[0].length;
+            int row = data.length;
+            int col = data[0].length;
+            if ((row > 0) && (col > 0)) {
+                this.values = new int[row][col];
+                this.values = data.clone();
             }
-
-            this.data = new int[row][col];
-            setMatrix(data);
         }
-
-    }
-
-    void setRandom(){
-        for (int i = 0;i < row;i++)
-            for (int j = 0;j < col;j++)
-                data[i][j] = new Random().nextInt(1000);
-    }
-
-    private void setMatrix(int[][] data){
-        this.data = data.clone();
-//            for (int i = 0; i < row; i++)
-//                for (int j = 0; j < col; j++)
-//                    this.data[i][j] = data[i][j];
-    }
-
-    private void resetMatrix(){
-        for (int i = 0;i < row;i++)
-            for (int j = 0;j < col;j++)
-                data[i][j] = 0;
     }
 
     int getRow(){
-        return row;
+        return values.length;
     }
 
-    int getCol(){
-        return col;
-    }
+    int getCol(){ return values[0].length; }
 
     int getValue(int i,int j){
-        return data[i][j];
+        return values[i][j];
     }
-    //Вывод матрицы
-    void show(){
-        System.out.println("-------------------------");
-        for (int i = 0;i < row;i++) {
-            for (int j = 0; j < col; j++) {
-                System.out.print(data[i][j] + " ");
-            }
-            System.out.println();
-        }
-    }
-
-
 }
